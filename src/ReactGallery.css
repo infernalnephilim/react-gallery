@@ -1,55 +1,77 @@
 .ReactGallery {
   width: 100%;
-  -webkit-transition: all ease-in 1s;
-  -moz-transition: all ease-in 1s;
-  -ms-transition: all ease-in 1s;
-  -o-transition: all ease-in 1s;
-  transition: all ease-in 1s; }
+  -webkit-transition: all ease-in 0.5s;
+  -moz-transition: all ease-in 0.5s;
+  -ms-transition: all ease-in 0.5s;
+  -o-transition: all ease-in 0.5s;
+  transition: all ease-in 0.5s; }
   .ReactGallery__content {
     width: 100%;
     display: flex;
+    justify-content: flex-start;
     flex-direction: row;
     flex-wrap: wrap; }
   .ReactGallery__item {
     position: relative;
-    flex-grow: 1;
     min-width: 300px;
-    max-width: 25%;
+    max-width: calc(25% - 20px);
     max-height: 250px;
     overflow: hidden;
-    padding: 5px;
+    margin: 10px;
     font-family: "Montserrat", sans-serif;
-    -webkit-transition: all ease-in 1s;
-    -moz-transition: all ease-in 1s;
-    -ms-transition: all ease-in 1s;
-    -o-transition: all ease-in 1s;
-    transition: all ease-in 1s;
-    animation: fadeIn .5s; }
+    animation: galleryItemFadeIn .5s; }
     .ReactGallery__item img {
-      width: 100%;
-      -webkit-transition: all ease-in 1s;
-      -moz-transition: all ease-in 1s;
-      -ms-transition: all ease-in 1s;
-      -o-transition: all ease-in 1s;
-      transition: all ease-in 1s; }
-  .ReactGallery__filter a {
-    border: 1px solid red; }
+      width: 120%; }
+  .ReactGallery__filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: baseline; }
+    @media screen and (min-width: 1300px) {
+      .ReactGallery__filter {
+        justify-content: center; } }
+    .ReactGallery__filter .button {
+      margin: 5px; }
+  .ReactGallery__filter-header {
+    font-family: "Montserrat", sans-serif;
+    margin-right: 20px;
+    margin-left: 5px;
+    width: 100%; }
+    @media screen and (min-width: 1300px) {
+      .ReactGallery__filter-header {
+        width: auto; } }
   .ReactGallery .ReactGallery-item__title {
     position: absolute;
     top: 0;
     left: 0;
-    padding: 10px;
+    margin: 20px;
     font-size: 2rem;
     z-index: 100;
     color: white;
     font-family: "Poiret One", cursive; }
   .ReactGallery .ReactGallery-item__details {
+    opacity: 0;
     position: absolute;
+    top: 0;
     bottom: 0;
     right: 0;
-    padding: 10px; }
+    left: 0;
+    background: rgba(0, 0, 0, 0.81);
+    padding: 10px;
+    -webkit-transition: all ease-in 0.5s;
+    -moz-transition: all ease-in 0.5s;
+    -ms-transition: all ease-in 0.5s;
+    -o-transition: all ease-in 0.5s;
+    transition: all ease-in 0.5s; }
+    .ReactGallery .ReactGallery-item__details:hover {
+      opacity: 1; }
+    .ReactGallery .ReactGallery-item__details .button {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      margin: 10px; }
 
-@keyframes fadeIn {
+@keyframes galleryItemFadeIn {
   from {
     left: -40px;
     opacity: 0; }

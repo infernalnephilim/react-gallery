@@ -1,31 +1,30 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
 import './ReactGallery.css';
 
 const projectsData = [{
     id: 1,
     title: 'Dermina',
-    category: 'web',
+    category: 'strony internetowe',
     imageURL: 'img/dermina_featured3.jpg',
-    siteURL: '#d'
+    siteURL: 'http://aleksandra-poltorak.pl/portfolio/dermina.html'
 }, {
     id: 2,
     title: 'JingleX',
-    category: 'web',
+    category: 'strony internetowe',
     imageURL: 'img/jinglex_featured3.jpg',
-    siteURL: '#'
+    siteURL: 'http://aleksandra-poltorak.pl/portfolio/jinglex.html'
 }, {
     id: 3,
     title: 'JingleX 2017',
-    category: 'web',
+    category: 'strony internetowe',
     imageURL: 'img/jinglex_old_featured.jpg',
-    siteURL: '#'
+    siteURL: 'http://aleksandra-poltorak.pl/portfolio/jinglex2017.html'
 }, {
     id: 4,
     title: 'Lista zakupów',
-    category: 'app',
+    category: 'aplikacje',
     imageURL: 'img/lista-zakupow_featured.jpg',
-    siteURL: '#'
+    siteURL: 'http://aleksandra-poltorak.pl/portfolio/lista-zakupow.html'
 }];
 
 class Item extends Component {
@@ -36,9 +35,14 @@ class Item extends Component {
                 <span className="ReactGallery-item__title">
                     {this.props.title}
                 </span>
-                <a className="ReactGallery-item__details" href={this.props.siteURL}>
-                    Szczegóły
-                </a>
+                <span className="ReactGallery-item__description">
+                        {this.props.title}
+                        </span>
+                <div className="ReactGallery-item__details">
+                    <a className="button" href={this.props.siteURL}>
+                        Szczegóły
+                    </a>
+                </div>
             </div>
         )
     }
@@ -47,7 +51,7 @@ class Item extends Component {
 class FilterPanel extends Component {
     render() {
         return (
-            <a onClick={this.props.onClick}>{this.props.category}</a>
+            <a className="button button-dark" onClick={this.props.onClick}>{this.props.category}</a>
         )
     }
 }
@@ -89,17 +93,16 @@ class ReactGallery extends Component {
     render() {
         return (
             <div className="ReactGallery">
-                <header className="ReactGallery__header">
-                    <h2>React Gallery</h2>
-                </header>
                 <div className="ReactGallery__filter">
+                    <span className="ReactGallery__filter-header">Filtruj:</span>
                     {
                         this.state.categories.map(function (el, i) {
                             let click = this.state.selectedCategory.bind(this, el);
                             return <FilterPanel onClick={click} category={el} key={i}/>
                         }, this)
                     }
-                    <a className="filter__btn filter__btn--reset" onClick={this.resetFilters.bind(this)}>
+                    <a className="button button-dark filter__btn filter__btn--reset"
+                       onClick={this.resetFilters.bind(this)}>
                         Pokaż wszystkie
                     </a>
                 </div>

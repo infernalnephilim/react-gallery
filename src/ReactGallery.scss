@@ -1,75 +1,109 @@
-//@import url("https://fonts.googleapis.com/css?family=Megrim|Montserrat|Poiret+One");
-
-$item-padding: 5px;
+$item-padding: 10px;
 $default-gallery-font: "Montserrat", sans-serif;
 $header-gallery-font: "Poiret One", cursive;
 
-.ReactGallery{
+$media-desktop: "screen and (min-width : 1300px)";
+
+@mixin transition-ease-in($time) {
+  -webkit-transition: all ease-in $time;
+  -moz-transition: all ease-in $time;
+  -ms-transition: all ease-in $time;
+  -o-transition: all ease-in $time;
+  transition: all ease-in $time;
+}
+
+.ReactGallery {
   width: 100%;
-  -webkit-transition: all ease-in 1s;
-  -moz-transition: all ease-in 1s;
-  -ms-transition: all ease-in 1s;
-  -o-transition: all ease-in 1s;
-  transition: all ease-in 1s;
-  &__header{
+  @include transition-ease-in(.5s);
+
+  &__header {
 
   }
-  &__content{
+  &__content {
     width: 100%;
     display: flex;
+    justify-content: flex-start;
     flex-direction: row;
     flex-wrap: wrap;
   }
-  &__item{
+  &__item {
     position: relative;
-    flex-grow: 1;
     min-width: 300px;
-    max-width: 25%;
+    max-width: calc(25% - 20px);
     max-height: 250px;
     overflow: hidden;
-   padding: $item-padding;
+    margin: $item-padding;
     font-family: $default-gallery-font;
-    -webkit-transition: all ease-in 1s;
-    -moz-transition: all ease-in 1s;
-    -ms-transition: all ease-in 1s;
-    -o-transition: all ease-in 1s;
-    transition: all ease-in 1s;
-    animation: fadeIn .5s;
-    img{
-      width: 100%;
-      -webkit-transition: all ease-in 1s;
-      -moz-transition: all ease-in 1s;
-      -ms-transition: all ease-in 1s;
-      -o-transition: all ease-in 1s;
-      transition: all ease-in 1s;
+
+    animation: galleryItemFadeIn .5s;
+    img {
+      width: 120%;
     }
 
   }
-  &__filter{
-    a{
-      border: 1px solid red;
+  &__filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: baseline;
+    @media #{$media-desktop} {
+      justify-content: center;
+    }
+    .button {
+      margin: 5px;
     }
   }
-  .ReactGallery-item{
-    &__title{
+  &__filter-header {
+    font-family: $default-gallery-font;
+    margin-right: 20px;
+    margin-left: 5px;
+    width: 100%;
+    @media #{$media-desktop} {
+      width: auto;
+    }
+  }
+  .ReactGallery-item {
+    &__title {
       position: absolute;
       top: 0;
       left: 0;
-      padding: $item-padding * 2;
+      margin: $item-padding * 2;
       font-size: 2rem;
       z-index: 100;
       color: rgb(255, 255, 255);
       font-family: $header-gallery-font;
     }
-    &__details{
+    &__details {
+      opacity: 0;
       position: absolute;
+      top: 0;
       bottom: 0;
       right: 0;
-      padding: $item-padding * 2;
+      left: 0;
+      background: rgba(0, 0, 0, 0.81);
+      padding: $item-padding;
+      @include transition-ease-in(.5s);
+
+      &:hover {
+        opacity: 1;
+      }
+      .button {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        margin: $item-padding;
+      }
     }
   }
 }
-@keyframes fadeIn {
-  from {left: -40px; opacity:0;}
-  to {left: 0; opacity:1}
+
+@keyframes galleryItemFadeIn {
+  from {
+    left: -40px;
+    opacity: 0;
+  }
+  to {
+    left: 0;
+    opacity: 1
+  }
 }
