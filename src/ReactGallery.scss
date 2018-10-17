@@ -36,7 +36,7 @@ $header-gallery-font: "Poiret One", cursive;
     transition: all ease-in 1s;
     animation: fadeIn .5s;
     img{
-      height: 100%;
+      width: 100%;
       -webkit-transition: all ease-in 1s;
       -moz-transition: all ease-in 1s;
       -ms-transition: all ease-in 1s;
@@ -54,6 +54,7 @@ $header-gallery-font: "Poiret One", cursive;
     &__title{
       position: absolute;
       top: 0;
+      left: 0;
       padding: $item-padding * 2;
       font-size: 2rem;
       z-index: 100;
@@ -63,6 +64,7 @@ $header-gallery-font: "Poiret One", cursive;
     &__details{
       position: absolute;
       bottom: 0;
+      right: 0;
       padding: $item-padding * 2;
     }
   }
