@@ -1,0 +1,58 @@
+.ReactGallery {
+  width: 100%;
+  -webkit-transition: all ease-in 1s;
+  -moz-transition: all ease-in 1s;
+  -ms-transition: all ease-in 1s;
+  -o-transition: all ease-in 1s;
+  transition: all ease-in 1s; }
+  .ReactGallery__content {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; }
+  .ReactGallery__item {
+    position: relative;
+    flex-grow: 1;
+    min-width: 300px;
+    max-width: 25%;
+    max-height: 250px;
+    overflow: hidden;
+    padding: 5px;
+    font-family: "Montserrat", sans-serif;
+    -webkit-transition: all ease-in 1s;
+    -moz-transition: all ease-in 1s;
+    -ms-transition: all ease-in 1s;
+    -o-transition: all ease-in 1s;
+    transition: all ease-in 1s;
+    animation: fadeIn .5s; }
+    .ReactGallery__item img {
+      height: 100%;
+      -webkit-transition: all ease-in 1s;
+      -moz-transition: all ease-in 1s;
+      -ms-transition: all ease-in 1s;
+      -o-transition: all ease-in 1s;
+      transition: all ease-in 1s; }
+  .ReactGallery__filter a {
+    border: 1px solid red; }
+  .ReactGallery .ReactGallery-item__title {
+    position: absolute;
+    top: 0;
+    padding: 10px;
+    font-size: 2rem;
+    z-index: 100;
+    color: white;
+    font-family: "Poiret One", cursive; }
+  .ReactGallery .ReactGallery-item__details {
+    position: absolute;
+    bottom: 0;
+    padding: 10px; }
+
+@keyframes fadeIn {
+  from {
+    left: -40px;
+    opacity: 0; }
+  to {
+    left: 0;
+    opacity: 1; } }
+
+/*# sourceMappingURL=ReactGallery.css.map */

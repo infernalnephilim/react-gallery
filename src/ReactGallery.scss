@@ -1,0 +1,73 @@
+//@import url("https://fonts.googleapis.com/css?family=Megrim|Montserrat|Poiret+One");
+
+$item-padding: 5px;
+$default-gallery-font: "Montserrat", sans-serif;
+$header-gallery-font: "Poiret One", cursive;
+
+.ReactGallery{
+  width: 100%;
+  -webkit-transition: all ease-in 1s;
+  -moz-transition: all ease-in 1s;
+  -ms-transition: all ease-in 1s;
+  -o-transition: all ease-in 1s;
+  transition: all ease-in 1s;
+  &__header{
+
+  }
+  &__content{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  &__item{
+    position: relative;
+    flex-grow: 1;
+    min-width: 300px;
+    max-width: 25%;
+    max-height: 250px;
+    overflow: hidden;
+   padding: $item-padding;
+    font-family: $default-gallery-font;
+    -webkit-transition: all ease-in 1s;
+    -moz-transition: all ease-in 1s;
+    -ms-transition: all ease-in 1s;
+    -o-transition: all ease-in 1s;
+    transition: all ease-in 1s;
+    animation: fadeIn .5s;
+    img{
+      height: 100%;
+      -webkit-transition: all ease-in 1s;
+      -moz-transition: all ease-in 1s;
+      -ms-transition: all ease-in 1s;
+      -o-transition: all ease-in 1s;
+      transition: all ease-in 1s;
+    }
+
+  }
+  &__filter{
+    a{
+      border: 1px solid red;
+    }
+  }
+  .ReactGallery-item{
+    &__title{
+      position: absolute;
+      top: 0;
+      padding: $item-padding * 2;
+      font-size: 2rem;
+      z-index: 100;
+      color: rgb(255, 255, 255);
+      font-family: $header-gallery-font;
+    }
+    &__details{
+      position: absolute;
+      bottom: 0;
+      padding: $item-padding * 2;
+    }
+  }
+}
+@keyframes fadeIn {
+  from {left: -40px; opacity:0;}
+  to {left: 0; opacity:1}
+}
