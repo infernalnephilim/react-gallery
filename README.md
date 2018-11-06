@@ -1,8 +1,7 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 # React.js Gallery
 
 Photo gallery with filters made with React.js
+You can see this app at https://infernalnephilim.github.io/react-gallery/
 
 ## Available Scripts
 
